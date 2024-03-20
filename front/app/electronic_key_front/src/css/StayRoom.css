@@ -1,0 +1,64 @@
+/* 基本的なリセットとフォント設定 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f4f7f6;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* 入室状況の見出しスタイル */
+li {
+  list-style-type: none;
+  text-align: center;
+}
+
+li > div {
+  font-size: 24px;
+  font-weight: 600;
+  color: #34568B;
+  background-color: #DCEEFB;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+  display: inline-block;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* カードデザイン */
+div.border {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  padding: 15px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 入室記録なしのスタイル */
+div.noEnter {
+  text-align: center;
+  color: #999;
+  font-size: 18px;
+  padding: 20px;
+}
+
+/* 入室者名と時間のスタイル */
+.name, .time {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* ホバー効果 */
+div.border:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}

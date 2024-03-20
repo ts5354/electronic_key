@@ -1,0 +1,52 @@
+version: "3.9"
+services:
+  front:
+    container_name: front
+    build:
+      context: ./front/app/electronic_key_front
+
+      dockerfile: Dockerfile
+    volumes:
+    - type: bind
+      source: ./front/app
+      target: /usr/src/front/app/
+   
+    #"react-app"の部分がプロジェクト名になる
+    command: sh -c "cd /usr/src/front/app/electronic_key_front && npm start" 
+    ports:
+      - 3000:3000
+    stdin_open: true #標準入力をコンテナと紐付ける
+
+  backend:
+    container_name: backapp
+    build: ./server
+    
+    ports:
+      - "5001:5001"
+    environment:
+      - backapp=/usr/src/app/server/server.py
+      
+    volumes:
+    - type: bind
+      source: ./server
+      target: /usr/src/app/server/
+    command: python3 /usr/src/app/server/server.py
+
+  db:
+    image: postgres:14
+    container_name: postgres_pta
+    ports:
+      - 5432:5432
+    volumes:
+      - db-store:/var/lib/postgresql/data
+
+    environment:
+      POSTGRES_USER: 'your_username'
+      POSTGRES_PASSWORD: 'your_password'
+      POSTGRES_DB: 'your_database_name'
+volumes:
+  db-store:  
+  
+
+
+   
